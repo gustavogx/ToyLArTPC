@@ -1,0 +1,22 @@
+# Macro file for ToyLArTPC interactive visualization
+# Executed automatically in interactive mode
+
+# Use the Qt OpenGL viewer
+/vis/open OGL 800x600-0+0
+
+# Draw geometry
+/vis/drawVolume
+
+# Set viewing angle
+/vis/viewer/set/viewpointThetaPhi 60 30
+
+# Accumulate event tracks across runs
+/vis/scene/add/trajectories smooth
+/vis/scene/add/hits
+/vis/scene/endOfEventAction accumulate
+
+# Axes and scale
+/vis/scene/add/axes 0 0 0 1 m
+
+# Quiet verbosity for vis
+/vis/verbose warnings
