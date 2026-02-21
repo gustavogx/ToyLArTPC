@@ -130,19 +130,7 @@ int main(int argc, char* argv[]) {
         branches[i]->SetAddress(&sensorValues[i]);
     }
 
-    // Find min and max values for normalization
-    int minVal = 2147483647, maxVal = -2147483647;
-    for (long long entry = 0; entry < numEvents; entry++) {
-        for (int i = 0; i < 25; i++) {
-            branches[i]->GetEntry(entry);
-        }
-        for (int i = 0; i < 25; i++) {
-            minVal = std::min(minVal, sensorValues[i]);
-            maxVal = std::max(maxVal, sensorValues[i]);
-        }
-    }
-
-    std::cout << "Sensor value range: [" << minVal << ", " << maxVal << "]" << std::endl;
+    std::cout << "Photon count encoding: 0 to 2^24-1 (16777215) directly as 24-bit RGB" << std::endl;
 
     // Generate images for each event
     for (long long entry = 0; entry < numEvents; entry++) {
@@ -161,30 +149,14 @@ int main(int argc, char* argv[]) {
             int sensorX = sensor % 5;
             int sensorY = sensor / 5;
 
-            // Normalize value to 0-1 range
+            // Encode photon count directly into RGB (24-bit)
+            // Ceiling at 2^24 - 1 = 16777215
             int val = sensorValues[sensor];
-            float normalized = (maxVal > minVal) ? (float)(val - minVal) / (float)(maxVal - minVal) : 0.0f;
-            unsigned char intensity = (unsigned char)(normalized * 255);
-
-            // Create heatmap color (blue -> cyan -> green -> yellow -> red)
-            unsigned char r, g, b;
-            if (normalized < 0.25) {
-                r = 0;
-                g = (unsigned char)(normalized * 4 * 255);
-                b = 255;
-            } else if (normalized < 0.5) {
-                r = 0;
-                g = 255;
-                b = (unsigned char)((1 - (normalized - 0.25) * 4) * 255);
-            } else if (normalized < 0.75) {
-                r = (unsigned char)((normalized - 0.5) * 4 * 255);
-                g = 255;
-                b = 0;
-            } else {
-                r = 255;
-                g = (unsigned char)((1 - (normalized - 0.75) * 4) * 255);
-                b = 0;
-            }
+            unsigned int encoded = (val > 16777215) ? 16777215 : (unsigned int)val;
+            
+            unsigned char r = (encoded >> 16) & 0xFF;  // High byte
+            unsigned char g = (encoded >> 8) & 0xFF;   // Middle byte
+            unsigned char b = encoded & 0xFF;          // Low byte
 
             // Draw pixel block
             for (int py = 0; py < pixelSize; py++) {
