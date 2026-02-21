@@ -17,6 +17,11 @@ find_package(ROOT REQUIRED COMPONENTS Core RIO Tree)
 include(${ROOT_USE_FILE})
 
 #---------------------------------------------------------------------
+# Find PNG (needed for image generation)
+#---------------------------------------------------------------------
+find_package(PNG REQUIRED)
+
+#---------------------------------------------------------------------
 # MARLEY neutrino event generator (only for standalone generator)
 #---------------------------------------------------------------------
 set(MARLEY_DIR $ENV{HOME}/Scientific/marley)
@@ -43,6 +48,16 @@ target_include_directories(GenerateMarleyEvents PRIVATE
     ${MARLEY_INCLUDE_DIR}
 )
 target_link_libraries(GenerateMarleyEvents ${MARLEY_LIB} ${ROOT_LIBRARIES})
+
+#---------------------------------------------------------------------
+# Image generator from ROOT files (reads PhotonCounts tree)
+#---------------------------------------------------------------------
+add_executable(GenerateImages generate_images.cc)
+target_include_directories(GenerateImages PRIVATE
+    ${ROOT_INCLUDE_DIRS}
+    ${PNG_INCLUDE_DIRS}
+)
+target_link_libraries(GenerateImages ${ROOT_LIBRARIES} ${PNG_LIBRARIES})
 
 #---------------------------------------------------------------------
 # Copy macro files and MARLEY config to build directory
