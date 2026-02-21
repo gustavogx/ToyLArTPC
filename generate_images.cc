@@ -86,12 +86,21 @@ public:
 
 int main(int argc, char* argv[]) {
     if (argc < 2) {
-        std::cout << "Usage: " << argv[0] << " <root_file> [output_dir]" << std::endl;
+        std::cout << "Usage: " << argv[0] << " <root_file> [output_dir] [--verbose]" << std::endl;
         return 1;
     }
 
     std::string rootFile = argv[1];
     std::string outputDir = (argc > 2) ? argv[2] : "output_images";
+    bool verbose = false;
+    
+    // Check for --verbose flag
+    for (int i = 3; i < argc; i++) {
+        if (std::string(argv[i]) == "--verbose") {
+            verbose = true;
+            break;
+        }
+    }
 
     // Create output directory
     std::string mkdirCmd = "mkdir -p " + outputDir;
@@ -154,9 +163,9 @@ int main(int argc, char* argv[]) {
             int val = sensorValues[sensor];
             unsigned int encoded = (val > 16777215) ? 16777215 : (unsigned int)val;
             
-            unsigned char r = (encoded >> 16) & 0xFF;  // High byte
+            unsigned char b = (encoded >> 16) & 0xFF;  // High byte
             unsigned char g = (encoded >> 8) & 0xFF;   // Middle byte
-            unsigned char b = encoded & 0xFF;          // Low byte
+            unsigned char r = encoded & 0xFF;          // Low byte
 
             // Draw pixel block
             for (int py = 0; py < pixelSize; py++) {
@@ -172,7 +181,10 @@ int main(int argc, char* argv[]) {
         char filename[256];
         snprintf(filename, sizeof(filename), "%s/event_%06lld.png", outputDir.c_str(), entry);
         img.savePNG(filename);
-        std::cout << "Saved " << filename << std::endl;
+        
+        if (verbose) {
+            std::cout << "Saved " << filename << std::endl;
+        }
 
         if ((entry + 1) % 100 == 0) {
             std::cout << "  Processed " << (entry + 1) << "/" << numEvents << " events" << std::endl;
