@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/ToyLArTPC.dir/link.d"
   "CMakeFiles/ToyLArTPC.dir/main.cc.o"
   "CMakeFiles/ToyLArTPC.dir/main.cc.o.d"
   "CMakeFiles/ToyLArTPC.dir/src/ActionInitialization.cc.o"

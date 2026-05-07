@@ -1,0 +1,6 @@
+set(__QT_DEPLOY_TARGET_ToyLArTPC_FILE /home/gvaldivi/Research/ToyLArTPC/build/ToyLArTPC)
+set(__QT_DEPLOY_TARGET_ToyLArTPC_TYPE EXECUTABLE)
+set(__QT_DEPLOY_TARGET_GenerateMarleyEvents_FILE /home/gvaldivi/Research/ToyLArTPC/build/GenerateMarleyEvents)
+set(__QT_DEPLOY_TARGET_GenerateMarleyEvents_TYPE EXECUTABLE)
+set(__QT_DEPLOY_TARGET_GenerateImages_FILE /home/gvaldivi/Research/ToyLArTPC/build/GenerateImages)
+set(__QT_DEPLOY_TARGET_GenerateImages_TYPE EXECUTABLE)

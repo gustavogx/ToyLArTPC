@@ -24,9 +24,25 @@ find_package(PNG REQUIRED)
 #---------------------------------------------------------------------
 # MARLEY neutrino event generator (only for standalone generator)
 #---------------------------------------------------------------------
-set(MARLEY_DIR $ENV{HOME}/Scientific/marley)
-set(MARLEY_INCLUDE_DIR ${MARLEY_DIR}/include)
-set(MARLEY_LIB ${MARLEY_DIR}/build/libMARLEY.so)
+find_program(MARLEY_CONFIG marley-config)
+if(MARLEY_CONFIG)
+    execute_process(
+        COMMAND ${MARLEY_CONFIG} --cflags
+        OUTPUT_VARIABLE MARLEY_CFLAGS
+        OUTPUT_STRIP_TRAILING_WHITESPACE
+    )
+    execute_process(
+        COMMAND ${MARLEY_CONFIG} --libs
+        OUTPUT_VARIABLE MARLEY_LIBS
+        OUTPUT_STRIP_TRAILING_WHITESPACE
+    )
+    # Extract include directory (last -I flag is the marley include dir)
+    string(REGEX MATCHALL "-I[^ ]+" MARLEY_INCLUDE_FLAGS "${MARLEY_CFLAGS}")
+    list(GET MARLEY_INCLUDE_FLAGS -1 MARLEY_INCLUDE_FLAG)
+    string(REPLACE "-I" "" MARLEY_INCLUDE_DIR "${MARLEY_INCLUDE_FLAG}")
+else()
+    message(FATAL_ERROR "marley-config not found. Please ensure MARLEY is installed and in your PATH.")
+endif()
 
 #---------------------------------------------------------------------
 # Project sources (main simulation – no MARLEY dependency)
@@ -47,7 +63,7 @@ add_executable(GenerateMarleyEvents generate_marley_events.cc)
 target_include_directories(GenerateMarleyEvents PRIVATE
     ${MARLEY_INCLUDE_DIR}
 )
-target_link_libraries(GenerateMarleyEvents ${MARLEY_LIB} ${ROOT_LIBRARIES})
+target_link_libraries(GenerateMarleyEvents ${MARLEY_LIBS} ${ROOT_LIBRARIES})
 
 #---------------------------------------------------------------------
 # Image generator from ROOT files (reads PhotonCounts tree)
