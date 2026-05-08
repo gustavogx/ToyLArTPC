@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = -DG4LIB_BUILD_DLL -DG4UI_USE_QT -DG4VIS_USE_OPENGLQT -DG4VIS_USE_RAYTRACER_QT -DG4VIS_USE_TOOLSSG_QT_GLES -DG4VIS_USE_TOOLSSG_QT_ZB -DPTL_BUILD_DLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NO_DEBUG -DQT_WIDGETS_LIB
 
-CXX_INCLUDES = -I/home/gvaldivi/Libraries/root_v6_38_00/root_install/include -I/home/gvaldivi/Research/ToyLArTPC/include -isystem /home/gvaldivi/Libraries/geant4-v11.4.1/geant4-install/include/Geant4 -isystem /usr/include/x86_64-linux-gnu/qt6/QtCore -isystem /usr/include/x86_64-linux-gnu/qt6 -isystem /usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt6/QtGui -isystem /usr/include/x86_64-linux-gnu/qt6/QtWidgets
+CXX_INCLUDES = -I/home/gvaldivi/Research/ToyLArTPC/include -I/home/gvaldivi/Libraries/root_v6_38_00/root_install/include -isystem /home/gvaldivi/Libraries/geant4-v11.4.1/geant4-install/include/Geant4 -isystem /usr/include/x86_64-linux-gnu/qt6/QtCore -isystem /usr/include/x86_64-linux-gnu/qt6 -isystem /usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt6/QtGui -isystem /usr/include/x86_64-linux-gnu/qt6/QtWidgets
 
-CXX_FLAGS =   -pipe -fsigned-char -pthread -std=gnu++20
+CXX_FLAGS = -std=gnu++20
 

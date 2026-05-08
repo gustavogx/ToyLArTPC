@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/gvaldivi/Libraries/root_v6_38_00/root_install/include -I/home/gvaldivi/Libraries/marley/include
+CXX_INCLUDES = -I/home/gvaldivi/Libraries/marley/include -I/home/gvaldivi/Libraries/root_v6_38_00/root_install/include
 
-CXX_FLAGS =   -pipe -fsigned-char -pthread -std=gnu++20
+CXX_FLAGS = -std=gnu++20
 

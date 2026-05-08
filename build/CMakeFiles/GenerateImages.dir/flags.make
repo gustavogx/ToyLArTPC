@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/home/gvaldivi/Libraries/root_v6_38_00/root_install/include
 
-CXX_FLAGS =   -pipe -fsigned-char -pthread -std=gnu++20
+CXX_FLAGS = -std=gnu++20
 

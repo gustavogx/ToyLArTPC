@@ -504,6 +504,8 @@ GenerateMarleyEvents
  /home/gvaldivi/Libraries/root_v6_38_00/root_install/lib/libPostscript.so
  /home/gvaldivi/Libraries/root_v6_38_00/root_install/lib/libRIO.so
  /home/gvaldivi/Libraries/root_v6_38_00/root_install/lib/libROOTDataFrame.so
+ /home/gvaldivi/Libraries/root_v6_38_00/root_install/lib/libROOTNTuple.so
+ /home/gvaldivi/Libraries/root_v6_38_00/root_install/lib/libROOTNTupleUtil.so
  /home/gvaldivi/Libraries/root_v6_38_00/root_install/lib/libROOTVecOps.so
  /home/gvaldivi/Libraries/root_v6_38_00/root_install/lib/libRint.so
  /home/gvaldivi/Libraries/root_v6_38_00/root_install/lib/libThread.so
@@ -531,6 +533,7 @@ GenerateMarleyEvents
  /usr/lib/x86_64-linux-gnu/crti.o
  /usr/lib/x86_64-linux-gnu/crtn.o
  /usr/lib/x86_64-linux-gnu/libc.so
+ /usr/lib/x86_64-linux-gnu/libdl.a
  /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
  /usr/lib/x86_64-linux-gnu/libm.so
  /usr/lib/x86_64-linux-gnu/libpthread.a

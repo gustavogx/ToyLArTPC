@@ -38,7 +38,7 @@ ToyLArTPC: \
   /home/gvaldivi/Libraries/root_v6_38_00/root_install/lib/libGraf.so \
   /home/gvaldivi/Libraries/root_v6_38_00/root_install/lib/libGraf3d.so \
   /home/gvaldivi/Libraries/root_v6_38_00/root_install/lib/libGpad.so \
-  /home/gvaldivi/Libraries/root_v6_38_00/root_install/lib/libROOTDataFrame.so \
+  /home/gvaldivi/Libraries/root_v6_38_00/root_install/lib/libROOTVecOps.so \
   /home/gvaldivi/Libraries/root_v6_38_00/root_install/lib/libTree.so \
   /home/gvaldivi/Libraries/root_v6_38_00/root_install/lib/libTreePlayer.so \
   /home/gvaldivi/Libraries/root_v6_38_00/root_install/lib/libRint.so \
@@ -47,8 +47,11 @@ ToyLArTPC: \
   /home/gvaldivi/Libraries/root_v6_38_00/root_install/lib/libPhysics.so \
   /home/gvaldivi/Libraries/root_v6_38_00/root_install/lib/libMathCore.so \
   /home/gvaldivi/Libraries/root_v6_38_00/root_install/lib/libThread.so \
+  /home/gvaldivi/Libraries/root_v6_38_00/root_install/lib/libROOTNTuple.so \
   /home/gvaldivi/Libraries/root_v6_38_00/root_install/lib/libMultiProc.so \
-  /home/gvaldivi/Libraries/root_v6_38_00/root_install/lib/libROOTVecOps.so \
+  /home/gvaldivi/Libraries/root_v6_38_00/root_install/lib/libROOTDataFrame.so \
+  /home/gvaldivi/Libraries/root_v6_38_00/root_install/lib/libROOTNTupleUtil.so \
+  /usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/libdl.a \
   /usr/lib/x86_64-linux-gnu/libQt6Widgets.so.6.9.2 \
   /usr/lib/x86_64-linux-gnu/libQt6Gui.so.6.9.2 \
   /usr/lib/x86_64-linux-gnu/libGL.so \
@@ -249,7 +252,7 @@ CMakeFiles/ToyLArTPC.dir/src/RunAction.cc.o:
 
 /home/gvaldivi/Libraries/root_v6_38_00/root_install/lib/libGpad.so:
 
-/home/gvaldivi/Libraries/root_v6_38_00/root_install/lib/libROOTDataFrame.so:
+/home/gvaldivi/Libraries/root_v6_38_00/root_install/lib/libROOTVecOps.so:
 
 /home/gvaldivi/Libraries/root_v6_38_00/root_install/lib/libTree.so:
 
@@ -267,9 +270,15 @@ CMakeFiles/ToyLArTPC.dir/src/RunAction.cc.o:
 
 /home/gvaldivi/Libraries/root_v6_38_00/root_install/lib/libThread.so:
 
+/home/gvaldivi/Libraries/root_v6_38_00/root_install/lib/libROOTNTuple.so:
+
 /home/gvaldivi/Libraries/root_v6_38_00/root_install/lib/libMultiProc.so:
 
-/home/gvaldivi/Libraries/root_v6_38_00/root_install/lib/libROOTVecOps.so:
+/home/gvaldivi/Libraries/root_v6_38_00/root_install/lib/libROOTDataFrame.so:
+
+/home/gvaldivi/Libraries/root_v6_38_00/root_install/lib/libROOTNTupleUtil.so:
+
+/usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/libdl.a:
 
 /usr/lib/x86_64-linux-gnu/libQt6Widgets.so.6.9.2:
 
